@@ -41,11 +41,17 @@ open the "SM" floating button, or "Scene Manager" on the Dashboard node. Can "ca
 
 ADDING A NEW CATEGORY REQUIRES A COMFYUI RESTART. The Prompt Builder Console, on restart, will have a new input for your new category. There will ALSO be a new node available for you to connect to the Prompt Builder Console. Build order can be changed in the "edit categories" mode of the Preset Manager (floating "PM" button)
 
-Metadata Filter, Big Display,
+
+Metadata Filter,
 will take all the LABELS of your presets and output them, can be turned on an off by category in the right-click node properties panel.
+
+Big Display - display any, right-click properties to change font size and color - visible at any zoom level
+
 Advanced Image Save
 can save as .png or .webp - has inputs for metadata and toggles for folder_by_date (YYYY-MM-DD), prefix timestamp for the file (HHMM), and a custom sub_directory.
 0424_BW-Group-Varied-Elderly-Bored-Business Suit-GlassesBlack-Close-Up-Portrait-CityDayTrees
+
+
 Extra Nodes:
 A. Pipe Any - Shaker Pipe Pack / Unpack - pipe any, inputs automatically generate as you add more. mapped 1 - to - 1 inputs to outputs.
 
@@ -53,3 +59,5 @@ B. Batch Any - lazy batching, doesn't fault if any inputs get a null in
 
 C. Color Match - takes a reference image, applies color matching 
 incrementally over a batch
+
+D. Timer Node - right click to change font size and color - visible at any zoom level
