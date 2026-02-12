@@ -6,6 +6,8 @@ INSTALL:
 
 Add this suite to "/ComfyUI/custom_nodes"
 
+in cmd console: git clone https://github.com/ShakerSmith/ShakerNodesSuite-0.2
+
 2. OPEN THE INCLUDED EXAMPLE "TUTORIAL" WORKFLOW: 
 
 TUTORIAL WORKLOW: <img width="832" height="1248" alt="ShakerNodes-Tutorial" src="https://github.com/user-attachments/assets/f7d5071b-2543-4e54-9b02-49fac734d1b4" />
