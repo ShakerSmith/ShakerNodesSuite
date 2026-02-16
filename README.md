@@ -41,7 +41,9 @@ ADDING A NEW CATEGORY REQUIRES A COMFYUI RESTART. The Prompt Builder Console, on
 Metadata Filter,
 will take all the LABELS of your presets and output them, can be turned on an off by category in the right-click node properties panel.
 
-Big Display - display any, right-click properties to change font size and color - visible at any zoom level
+
+
+
 
 Advanced Image Save -can save as .png or .webp - has inputs for metadata and toggles for folder_by_date (YYYY-MM-DD), prefix timestamp for the file (HHMM), and a custom sub_directory.
 0424_BW-Group-Varied-Elderly-Bored-Business Suit-GlassesBlack-Close-Up-Portrait-CityDayTrees
@@ -106,6 +108,51 @@ Place the Mirror wherever you want - Even if your KSampler is ten screens away, 
 3. **Queue Prompt:** As soon as a sampler starts working anywhere in your workflow, the Mirror will automatically pick up the signal and display the live progress.
 
 ---
+
+# 📺 Shaker Big Display
+
+The **Shaker Big Display** is a high-visibility monitoring node designed to bring clarity to complex workflows. While standard ComfyUI text boxes are small and often difficult to read from a distance, the Big Display renders text directly onto the node’s foreground using customizable, high-contrast fonts.
+
+## 🚀 Why use this?
+
+In a "Shaker" workflow, your final prompt is often a mix of many different category selections and random rolls. The **Big Display** acts as a "Billboard" for your prompt, allowing you to see exactly what is being generated without having to zoom in or squint at tiny widget text.
+
+---
+
+## ✨ Key Features
+
+### 1. Direct Canvas Rendering
+Unlike standard nodes that use HTML text areas, this node draws text directly to the ComfyUI canvas. This ensures the text stays sharp and remains legible even when you are zoomed out to view your entire graph.
+
+### 2. Automatic Text Cleaning
+The node is specifically optimized for the ShakerNodes suite. If it receives a "Readable List" (e.g., `Artist: Annie Liebovitz`), it automatically strips away the category prefix and displays only the active value (`Annie Liebovitz`) for a cleaner look.
+
+### 3. Customizable Aesthetics
+You can customize the look of the display via the **Right-Click Properties** menu:
+* **font_size:** Scale the text up for "Presentation Mode" or down for complex lists.
+* **text_color:** Match the display to your workflow's theme (defaults to a high-visibility neon green).
+
+### 4. No-Input "Ready" State
+The node provides immediate visual feedback. When a workflow is idle or reset, the display shows a "Ready" status, letting you know the system is waiting for the next generation.
+
+---
+
+## 🛠 Inputs & Controls
+
+| Input | Description |
+| :--- | :--- |
+| **input_data** | Accepts any input (String, Int, Float, or a Shaker List). |
+| **Properties** | Access `font_size` and `text_color` by right-clicking the node and selecting "Properties". |
+
+---
+
+## 🚀 Common Use Cases
+
+* **Prompt Monitoring:** Connect the `readable_list` from the **Main Console** to see your current "Recipe" in large text.
+* **Seed Tracking:** Display the current seed or checkpoint name prominently.
+* **Instruction Labels:** Use it as a large, dynamic label to explain different sections of a shared workflow.
+
+
 
 # 🛠 Shaker Pipe System
 
