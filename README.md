@@ -148,8 +148,52 @@ The Unpack node features a **pipe_pass** output. This allows you to tap into the
 
 B. Batch Any - lazy batching, doesn't fault if any inputs get a null in
 
-C. Color Match - takes a reference image, applies color matching 
-incrementally over a batch
+
+# 🎞️ Shaker Gradual Color Match
+
+The **Shaker Gradual Color Match** is a specialized image processing node designed primarily for video workflows and batch processing. It allows you to unify the color profile of an entire image sequence based on a single reference frame, with the unique ability to transition the strength of the effect over time.
+
+## 🚀 Why use this?
+
+In AI-generated video or long batch runs, color drift is a common issue—the lighting or palette often shifts as the sequence progresses. While standard color matching applies a static fix, the **Gradual Color Match** allows for a controlled "hand-off." You can start with 0% matching and slowly ramp up to 100% (or vice versa), making it an essential tool for smooth transitions between different scenes or styles.
+
+---
+
+## ✨ Key Features
+
+### 1. Strength Interpolation
+Unlike static matchers, this node calculates a unique strength for every single frame in your batch.
+* **Linear:** A straight-line transition from your start strength to your end strength.
+* **Smoothstep:** A curved, organic transition that starts slow, speeds up in the middle, and tapers off at the end—perfect for cinematic easing.
+
+### 2. Dual Match Modes
+* **RGB Mode:** Individually matches the Red, Green, and Blue histograms. This is the best choice for corrected color shifts and "grading" one image to look like another.
+* **Luminance Mode:** Matches only the brightness values while preserving the original color data. This is ideal for fixing "flicker" or exposure inconsistencies without changing the actual colors of the shot.
+
+### 3. Reference-Based Consistency
+By picking one "Gold Standard" image (the `reference_image`), you can ensure that an entire batch of 100+ frames adheres to that specific look, drastically reducing visual popping in video animations.
+
+---
+
+## 🛠 Inputs & Controls
+
+| Input | Description |
+| :--- | :--- |
+| **batch_images** | The sequence of images (video frames) you want to modify. |
+| **reference_image** | The image whose color/lighting profile you want to copy. |
+| **start_strength** | The match intensity for the first frame (0.0 to 1.0). |
+| **end_strength** | The match intensity for the final frame (0.0 to 1.0). |
+| **interpolation** | Choose between `linear` or `smoothstep` for the transition curve. |
+| **match_mode** | `RGB` for full color matching, or `Luminance` for brightness-only matching. |
+
+---
+
+## 🚀 Common Use Cases
+
+* **Deflickering:** Set `match_mode` to `Luminance` and use a clear frame as a reference to stabilize shaky exposure in AI video.
+* **Scene Transitions:** Use `start_strength: 0.0` and `end_strength: 1.0` to gradually pull a sequence into the color palette of a new environment.
+* **Batch Uniformity:** Keep both strengths at `1.0` to force every image in a large batch to match a specific photographic style.
+
 
 D. Timer Node - right click to change font size and color - visible at any zoom level
 
