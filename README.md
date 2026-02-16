@@ -77,6 +77,35 @@ No matter what multiplier or custom size you use, the node automatically calcula
 * **Multiplier:** Want to generate at 1.5x or 2x resolution for high-res fixing? Just move the slider.
 * **Custom Mode:** Need a specific size? Switch to "Custom" to use the manual width/height sliders while still benefiting from the auto-rounding logic.
 * **Random Mode:** Let the node roll the dice on a random aspect ratio for every generation to find new compositions.
+* 
+
+# 📺 Shaker Live Preview Mirror
+
+The **Shaker Live Preview Mirror** is a specialized utility node designed to enhance the visibility of your generation process. In complex or sprawling ComfyUI workflows, the sampler—and its tiny native preview—is often buried or far away from your control center. This node acts as a "remote monitor" that you can place anywhere in your graph.
+
+## 🚀 Why use this?
+
+Standard ComfyUI previews are tethered to the sampler node itself. If you are using the **Shaker Main Console** and other control nodes in one area of your workspace, you usually have to scroll back and forth to see the progress of your image. 
+
+The **Live Preview Mirror** allows you to stay focused on your prompt settings while maintaining a clear view of the sampling process in real-time.
+
+---
+
+## ✨ Key Features
+
+### 1. Zero-Impact Performance
+The node has no functional outputs and does not process tensors or latents. It acts as a visual bridge, meaning it adds **zero overhead** to your generation speed or VRAM usage.
+
+### 2. Strategic Placement
+Place the Mirror wherever you want - Even if your KSampler is ten screens away, you'll see every step of the denoising process as it happens.
+
+## 🛠 How to Use
+
+1. **Add the Node:** Find it under `ShakerNodes -> Utility -> Live Preview Mirror 📺`.
+2. **Position It:** Place it wherever you spend the most time during generation (usually near your prompt nodes).
+3. **Queue Prompt:** As soon as a sampler starts working anywhere in your workflow, the Mirror will automatically pick up the signal and display the live progress.
+
+---
 
 EXTRA NODES:
 
