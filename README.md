@@ -5,9 +5,7 @@ Comfyui nodes for saving, combining, building, randomizing prompts. Also, lots o
 * **Master Controller 🕹️**: Global remote to switch all Shaker nodes between Manual and Random modes.
 * **Shaker Dashboard**: The central hub for accessing the floating UI Preset and Scene managers.
 * **Category Nodes**: Dynamic nodes (e.g., Artist, Subject) generated automatically from your presets.
-* **Prompt Shaker**: The engine that compiles selections and merges negative prompts into one final string.
-* **Scene Stealer**: Captures the current configuration of every Shaker node in the graph.
-* **Scene Quick Load**: A streamlined node for jumping between your saved Scene snapshots.
+* **Prompt Builder Console**: The engine that compiles selections and merges negative prompts into one final string.
 * **Metadata Filter**: Toggles which preset labels are exported to the image metadata/filename.
 
 ### 📐 Generation Utilities
@@ -26,12 +24,12 @@ Comfyui nodes for saving, combining, building, randomizing prompts. Also, lots o
 * **Shaker Timer ⏱️**: A real-time stopwatch for benchmarking generation and workflow performance.
 
 ### 🔌 Workflow Logic
-* **Shaker Pipe Pack**: Bundles up to 20 wires into a single clean connection to eliminate spaghetti.
+* **Shaker Pipe Pack**: Bundles up to 20 wires into a single clean connection to eliminate spaghetti. Default to 4 and automatically adds more inputs as you connect them.
 * **Shaker Pipe Unpack**: Extracts specific wires from a Shaker Pipe at their destination.
-* **Shaker Batch**: Combines up to 10 image or latent inputs into a single unified batch.
-* **Shaker Integer Slider**: Draggable handle for whole numbers (Steps, Batch Size).
-* **Shaker Float Slider**: Draggable handle for decimal values (Denoise, CFG).
-* **Shaker String Slider**: Converts numeric slider values into text strings for prompt injection.
+* **Shaker Batch**: Batch Any with lazy batching - have as many inputs as you want AND will skip any null inputs.
+* **Shaker Integer Slider**: Draggable handle for whole numbers (Steps, Batch Size). Right-click node properties to set upper and lower limits.
+* **Shaker Float Slider**: Draggable handle for decimal values (Denoise, CFG). Right-click node properties to set upper and lower limits.
+* **Shaker String Slider**: Converts numeric slider values into text strings for prompt injection. Right-click node properties to set upper and lower limits.
 
 1. 
 INSTALL:
