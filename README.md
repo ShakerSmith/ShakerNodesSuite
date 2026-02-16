@@ -1,4 +1,4 @@
-# ShakerNodesSuite-0.2
+# ShakerNodesSuite-0.3
 Traditional prompting forces you to choose between two extremes: the "Wall of Text" box that is impossible to manage at scale, or Wildcards that feel like a black box where you never quite know what you're going to get. Our suite bridges this gap by turning prompting into a modular, visible UI experience. Instead of memorizing file names or hunting for missing commas, you have tactile Category Nodes that allow you to mix-and-match styles with surgical precision or roll the dice on curated randomization giving you the professional organization of a database with the creative speed of a slot machine.
 
 <img width="614" height="233" alt="PresetManager" src="https://github.com/user-attachments/assets/5bfaed00-5f26-49bf-b3f8-751de33cec97" />
