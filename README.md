@@ -90,6 +90,61 @@ Easily organize your generations into timestamped folders AND autoname your gene
 
 "output\2026-02-15\0424_1Man-Elderly-Bored-Business Suit-GlassesBlack-Close-Up-Portrait-CityDayTrees.png"
 
+# 🎥 Shaker Video Saver
+
+The **Shaker Video Saver** is a high-performance export node designed to handle the unique needs of AI-generated video and image sequences. It provides an organized, metadata-aware way to save animations directly from ComfyUI in multiple formats.
+
+## 🚀 Why use this?
+
+Standard video savers often lack flexible organization or force you to use command-line tools for simple exports. The **Shaker Video Saver** integrates into the suite's philosophy of "Clean I/O," offering automatic folder nesting, timestamping, and support for lightweight, high-quality formats like animated WebP.
+
+---
+
+## ✨ Key Features
+
+### 1. Workflow Gatekeeping & Progressive Previews
+This node can act as a **strategic checkpoint** in your graph. By placing a Video Saver after an initial low-res pass (like an AnimateDiff base) but before a heavy Upscale or ControlNet pass, you can:
+* **Gatekeep the Workflow:** Use the `batch_pass` output to feed the next stage of your graph. This ensures that every time the workflow runs, a "work-in-progress" video is safely committed to disk before the more time-consuming nodes begin.
+* **Progressive Previews:** If a long upscale fails or you manually cancel the run, you don't lose your work. The Video Saver has already written the base animation to your drive, giving you a library of previews to review without re-rendering the whole sequence.
+
+### 2. Multi-Format Support
+Export your generations in the format that best fits your needs:
+* **MP4:** High compatibility for social media and editing (uses `mp4v` codec).
+* **WebP (Animated):** Superior quality-to-file-size ratio, perfect for web sharing.
+* **GIF:** The classic standard for quick, looped previews.
+
+### 3. Professional File Organization
+* **Folder by Date:** Automatically creates sub-folders named `YYYY-MM-DD`.
+* **Timestamp Prefix:** Adds a `HHMM` prefix so your renders stay sorted chronologically.
+* **Custom Sub-Directories:** Define a project name (e.g., "Scene_01_Tests") to keep related renders grouped.
+
+---
+
+## 🛠 Inputs & Outputs
+
+| Input | Description |
+| :--- | :--- |
+| **images** | The image batch (tensor) to be converted into video. |
+| **fps** | Frames Per Second (Standard is 12-24 for AI video). |
+| **format** | Choose between `mp4`, `webp_anim`, or `gif`. |
+| **sub_directory** | An optional extra folder layer for project organization. |
+
+| Output | Description |
+| :--- | :--- |
+| **batch_pass** | Passes the full tensor batch forward. Use this to "gatekeep" the next node in your chain. |
+| **last_frame** | Extracts only the final frame. Ideal for "Init Image" loops or frame-to-frame consistency checks. |
+
+---
+
+## 🚀 Pro-Tip: The "Chain-Link" Strategy
+
+To maximize efficiency in complex video workflows, link your nodes as follows:
+1. **Sampler** -> **Video Saver (Low Res MP4)** -> **Upscaler** -> **Video Saver (High Res MP4)**.
+
+
+
+This setup creates a "fail-safe" point: if your high-res upscale runs out of VRAM, you still have the low-res preview video saved in your output folder automatically.
+
 # 📏 Shaker Latent Generator
 
 The **Shaker Latent Generator** is a specialized resolution-management node for ComfyUI. It eliminates the guesswork and "math fatigue" associated with setting up latents for different models, ensuring your dimensions are always optimized for the specific architecture you are using (SD1.5 or SDXL).
