@@ -228,6 +228,50 @@ The Unpack node features a **pipe_pass** output. This allows you to tap into the
 
 ---
 
+
+# 🎚️ Shaker Sliders
+
+The **Shaker Sliders** are a set of streamlined input nodes designed to replace standard number boxes with intuitive, draggable sliders. They are built for real-time adjustments and clear visual feedback within your ComfyUI workspace.
+
+## 🚀 Why use this?
+
+Standard ComfyUI primitive nodes require manual typing or clicking tiny arrows to change values. Shaker Sliders provide a dedicated UI handle for "feeling out" the right settings—whether you are adjusting CFG, Denoise strength, or specific prompt weights.
+
+---
+
+## ✨ Key Features
+
+### 1. Visual Granularity
+Each slider is configured with specific steps (e.g., 0.01 for floats) to ensure you have the precision needed for high-end generation without the friction of typing numbers.
+
+### 2. Native Multi-Type Support
+The suite includes three distinct slider types to cover any node input in your graph:
+* **Integer Slider:** Optimized for whole numbers like Step Count, Batch Size, or Seed offsets.
+* **Float Slider:** Perfect for percentage-based values like Denoise, CFG, or LoRA strengths (0.0 to 1.0 range).
+* **String Slider:** A specialized utility that outputs a number as a string. This is useful for workflows that require numeric values to be injected directly into prompt strings or text-manipulation nodes.
+
+### 3. Organized Categorization
+All slider nodes are conveniently grouped under `ShakerNodes -> Sliders` in the search menu, keeping your utility nodes separated from your generation nodes.
+
+---
+
+## 🛠 Available Nodes
+
+| Node Name | Data Type | Default Range |
+| :--- | :--- | :--- |
+| **Shaker Integer Slider** | `INT` | 0 to 100 (Step: 1) |
+| **Shaker Float Slider** | `FLOAT` | 0.0 to 1.0 (Step: 0.01) |
+| **Shaker String Slider** | `STRING` | 0.0 to 10.0 (Step: 0.1) |
+
+---
+
+## 🚀 Common Use Cases
+
+* **Denoise Control:** Connect a Float Slider to your KSampler to quickly sweep through different levels of "creativity" on an upscale.
+* **Prompt Weighting:** Use a String Slider to dynamically control the strength of a specific keyword within a formatted prompt.
+* **Batch Management:** Use an Integer Slider to quickly set the number of images to generate without opening a primitive menu.
+
+
 B. Batch Any - lazy batching, doesn't fault if any inputs get a null in
 
 
