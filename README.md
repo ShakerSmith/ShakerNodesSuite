@@ -36,6 +36,7 @@ Comfyui nodes for saving, combining, building, randomizing prompts. Also, lots o
 * **Shaker Integer Slider**: Draggable handle for whole numbers (Steps, Batch Size). Right-click node properties to set upper and lower limits.
 * **Shaker Float Slider**: Draggable handle for decimal values (Denoise, CFG). Right-click node properties to set upper and lower limits.
 * **Shaker String Slider**: Converts numeric slider values into text strings for prompt injection. Right-click node properties to set upper and lower limits.
+* **Shaker Concatenate Any**: A dynamic, intelligent string concatenation node for **ComfyUI**. This node is designed to merge multiple text inputs while automatically handling empty values, whitespace, and formatting.
 
 1. 
 INSTALL:
@@ -286,7 +287,7 @@ Combines batch processing with video handling. This node is built for high-volum
 
 # 🔗 Shaker Concatenate Any
 
-A dynamic, intelligent string concatenation node for **ComfyUI**. Part of the **ShakerNodes Suite**, this node is designed to merge multiple text inputs while automatically handling empty values, whitespace, and formatting.
+A dynamic, intelligent string concatenation node for **ComfyUI**. This node is designed to merge multiple text inputs while automatically handling empty values, whitespace, and formatting.
 
 ---
 
