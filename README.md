@@ -16,6 +16,7 @@ Comfyui nodes for saving, combining, building, randomizing prompts. Also, lots o
 
 ### 📐 Generation Utilities
 * **Shaker Latent Generator**: Smart resolution manager with SD1.5/SDXL presets and auto-rounding logic.
+* **Shaker Video Latent**: A specialized node for initializing video generation workflows. This one is "video-aware" and handles the heavy lifting of dimension math for you. Takes an input image, resizes, crops, and outputs latent accordingly.
 * **Advanced Image Save**: High-speed saver for WebP and PNG with automatic date-sorting and metadata injection.
 * **Shaker Reconstructor**: Reads Shaker metadata from an image to reset your workspace to those exact settings.
 
@@ -178,6 +179,39 @@ No matter what multiplier or custom size you use, the node automatically calcula
 * **Custom Mode:** Need a specific size? Switch to "Custom" to use the manual width/height sliders while still benefiting from the auto-rounding logic.
 * **Random Mode:** Let the node roll the dice on a random aspect ratio for every generation to find new compositions.
 * 
+
+---
+
+## 📽️ Shaker Video Latents
+The **Shaker Video Latents** node is a specialized utility designed to streamline the initialization of video generation workflows (such as Wan Video, SVD, or DynamiCrafter). It eliminates the manual math usually required to sync frame rates, resolutions, and aspect ratios.
+
+### ✨ Key Features
+* **Wan Video Optimization:** Automatically rounds all dimensions to the nearest multiple of **16**, ensuring compatibility with Wan Video's specific tensor requirements and preventing "dimension mismatch" errors.
+* **Smart Aspect Ratio Detection:**
+    * **Auto Mode:** Dynamically detects the aspect ratio of an input image and scales the latent to match while maintaining your target resolution.
+    * **Fixed Modes:** Quickly toggle between standard Landscape (16:9) and Portrait (9:16) presets.
+* **Integrated Image Processor:** Features a built-in **Bicubic Scaling** and **Center-Crop** engine. It ensures your reference image perfectly matches the latent dimensions, which is critical for preventing "stretched" or "squashed" subjects in Image-to-Video tasks.
+* **Timing Control:** Define your video length using real-world units (**Seconds** and **FPS**) rather than just raw frame counts.
+
+### 📥 Inputs
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| **aspect** | `COMBO` | Selection: `landscape`, `portrait`, or `auto` (follows source image). |
+| **resolution** | `COMBO` | Target base resolution: `720p` or `480p`. |
+| **seconds** | `INT` | The total duration of the video clip. |
+| **frame_rate** | `INT` | Target FPS (Frames Per Second). |
+| **custom_frames**| `INT` | Add/subtract specific frame counts for precise timing offsets. |
+| **image** | `IMAGE` | *(Optional)* The reference image used for auto-scaling and cropping. |
+
+### 📤 Outputs
+| Name | Type | Description |
+| :--- | :--- | :--- |
+| **latent** | `LATENT` | The empty latent batch initialized for your video model. |
+| **processed_image** | `IMAGE` | The cropped/rescaled version of your input image, matching the latent exactly. |
+| **width / height** | `INT` | The final pixel dimensions (post-rounding). |
+| **num_frames** | `INT` | The final total frame count calculated from seconds + custom frames. |
+
+---
 
 # 📺 Shaker Live Preview Mirror
 
