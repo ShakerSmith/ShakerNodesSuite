@@ -80,9 +80,9 @@ will take all the LABELS of your presets and output them, can be turned on an of
 
 # Advanced Image Save -can save as .png or .webp - has inputs for metadata and toggles for folder_by_date (YYYY-MM-DD), prefix timestamp for the file (HHMM), and a custom sub_directory.
 
-Easily organize your generations into timestamped folders AND autoname your generations using YOUR preset labels. For instance: 
+Easily organize your generations into timestamped folders AND autoname your generations using YOUR preset labels. For instance, automatically get your output filenames looking like this: 
 
-0424_BW-Group-Varied-Elderly-Bored-Business Suit-GlassesBlack-Close-Up-Portrait-CityDayTrees
+"output\2026-02-15\0424_1Man-Elderly-Bored-Business Suit-GlassesBlack-Close-Up-Portrait-CityDayTrees.png"
 
 # 📏 Shaker Latent Generator
 
