@@ -272,7 +272,51 @@ All slider nodes are conveniently grouped under `ShakerNodes -> Sliders` in the 
 * **Batch Management:** Use an Integer Slider to quickly set the number of images to generate without opening a primitive menu.
 
 
-B. Batch Any - lazy batching, doesn't fault if any inputs get a null in
+
+# 📦 Shaker Batch
+
+The **Shaker Batch** node is a high-performance utility designed to consolidate multiple individual inputs into a single batched output. It is an essential tool for creating image grids, processing multiple variations through a single VAE/Upscaler, or preparing disparate images for video interpolation.
+
+## 🚀 Why use this?
+
+Standard ComfyUI batching often requires nodes that only accept two inputs at a time, leading to "staircase" layouts where you chain multiple nodes together to combine four or five images. 
+
+**Shaker Batch** simplifies this by providing multiple optional inputs on a single node. It intelligently handles empty slots and different data types, ensuring your workflow stays clean and your batches remain consistent.
+
+---
+
+## ✨ Key Features
+
+### 1. Multi-Slot Consolidation
+The node features up to 10 optional input slots. You can plug in as many or as few as you need; the node automatically ignores any empty inputs and packs the active ones into a continuous sequence.
+
+### 2. Intelligent Tensor Handling
+Specifically optimized for image and latent tensors. It automatically detects the batch dimension and concatenates your inputs along that axis. This allows you to combine:
+* **Single Images:** (e.g., combining 4 separate 1024x1024 images into one 4-frame batch).
+* **Existing Batches:** (e.g., combining two 4-frame batches into one 8-frame batch).
+
+### 3. Numerical Integrity
+The node processes inputs in strict numerical order (`input_1` through `input_10`). This is critical for animation or sequential workflows where the order of frames must be preserved perfectly.
+
+### 4. Zero-Overhead "Pass-Through"
+If you only provide a single input, the node acts as a zero-latency pass-through. It only triggers the concatenation logic when multiple valid inputs are detected, saving computation time.
+
+---
+
+## 🛠 Inputs & Outputs
+
+| Connection | Function |
+| :--- | :--- |
+| **input_1 ... 10** | **Optional.** Accepts Images, Latents, or any standard ComfyUI data type. |
+| **batched_output** | A single unified batch containing all valid inputs in sequential order. |
+
+---
+
+## 🚀 Common Use Cases
+
+* **Comparison Grids:** Batch 4 different generations of the same prompt to view them side-by-side in a preview bridge.
+* **Vid2Vid Preparation:** Take individual frames processed in different sections of a graph and re-assemble them into a video-ready batch.
+* **Resource Optimization:** Send a batch of 8 images through a single "Image Upscale" node simultaneously rather than using 8 separate upscalers.
 
 
 # 🎞️ Shaker Gradual Color Match
