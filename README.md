@@ -1,4 +1,10 @@
 # ShakerNodesSuite-0.2
+Traditional prompting forces you to choose between two extremes: the "Wall of Text" box that is impossible to manage at scale, or Wildcards that feel like a black box where you never quite know what you're going to get. Our suite bridges this gap by turning prompting into a modular, visible UI experience. Instead of memorizing file names or hunting for missing commas, you have tactile Category Nodes that allow you to mix-and-match styles with surgical precision or roll the dice on curated randomization giving you the professional organization of a database with the creative speed of a slot machine.
+
+<img width="614" height="233" alt="PresetManager" src="https://github.com/user-attachments/assets/5bfaed00-5f26-49bf-b3f8-751de33cec97" />
+
+<img width="488" height="347" alt="546561546-364eec63-7718-441f-a75e-188744aa4767" src="https://github.com/user-attachments/assets/4b1100f7-675b-4f72-8d0b-d3515154fc93" />
+
 Comfyui nodes for saving, combining, building, randomizing prompts. Also, lots of utilities for easier workflows - latent generator, live preview mirror, smart filename management, batching, piping. Here's the list of nodes - more detailed descriptions and tutorial workflow below:
 
 ### 🧠 Prompting & Management
