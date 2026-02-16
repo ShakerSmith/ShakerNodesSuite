@@ -107,10 +107,44 @@ Place the Mirror wherever you want - Even if your KSampler is ten screens away, 
 
 ---
 
-EXTRA NODES:
+# 🛠 Shaker Pipe System
 
+The **Shaker Pipe System** is a workflow organization utility for ComfyUI. It solves the "Spaghetti Problem" by allowing you to bundle multiple wires into a single connection, keeping your graph clean and manageable without sacrificing flexibility.
 
-A. Pipe Any - Shaker Pipe Pack / Unpack - pipe any, inputs automatically generate as you add more. mapped 1 - to - 1 inputs to outputs.
+## 🚀 Why use this?
+
+As workflows grow, you often find yourself dragging 10+ wires (Model, VAE, Positive, Negative, Latent, etc.) across the screen. If you move a group of nodes, you have to reorganize every single wire. 
+
+The **Shaker Pipe** allows you to "pack" all those outputs into one single "pipe" wire, transport it across your graph, and "unpack" exactly what you need on the other side.
+
+---
+
+## ✨ Key Features
+
+### 1. Flexible Packing
+The **Pipe Pack** node accepts any data type (images, latents, conditioning, models, or strings). It doesn't care what you feed it—it just bundles it securely for transport.
+
+### 2. High-Capacity Unpacking
+The **Pipe Unpack** node provides up to 20 output slots. It remembers the order in which you packed your data, allowing you to pull out specific elements exactly when you need them.
+
+### 3. Daisy-Chaining
+The Unpack node features a **pipe_pass** output. This allows you to tap into the pipe to grab a few variables, then pass the entire bundle forward to the next section of your workflow.
+
+---
+
+## 🛠 How to Use
+
+### Packing
+1. Add a **Shaker Pipe Pack** node.
+2. Plug your various outputs (e.g., your Model, Positive Prompt, and Latent) into the `in` slots.
+3. Connect the `SHAKER_PIPE` output to your long-distance destination.
+
+### Unpacking
+1. Add a **Shaker Pipe Unpack** node at the end of your pipe.
+2. The outputs will correspond to the order you plugged them into the Pack node.
+3. Use the `pipe_pass` output if you need to send the bundle further down the line to another Unpack node.
+
+---
 
 B. Batch Any - lazy batching, doesn't fault if any inputs get a null in
 
